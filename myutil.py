@@ -1,5 +1,8 @@
 '''
+Justin Rozeboom
+wrozeboo@ualberta.ca
 Overwriting small modifications on functions directly taken from neurite package.
+
 Citation: Dalca AV, Guttag J, Sabuncu MR
 Anatomical Priors in Convolutional Networks for Unsupervised Biomedical Segmentation, 
 CVPR 2018
@@ -304,17 +307,14 @@ def make_slices_fig(path, columns=1):
     # Convert all images to grayscale
     images = [img if img.ndim == 2 else img[:, :, 0] for img in images]
 
-    # Extract labels from filenames
     labels = [file_path.split('_')[-1].split('.png')[0] for file_path in file_paths]
 
     num_images = len(images)
     rows_per_column = (num_images + columns - 1) // columns
 
-    # Define a fixed padding width
     font_size = 45
     label_width = 150  # Fixed padding width, ensure it's sufficient for all labels
 
-    # Determine the maximum width of all images
     max_width = max(img.shape[1] for img in images)
 
     stacks = []

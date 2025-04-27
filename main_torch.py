@@ -1,3 +1,10 @@
+'''
+Author: Justin Rozeboom
+wrozeboo@ualberta.ca
+
+Pytorch training script for Voxelmorph and different losses.
+'''
+
 import os
 import numpy as np
 import torch

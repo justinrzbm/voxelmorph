@@ -1,3 +1,15 @@
+# Purpose
+This fork simply is an easy training and evaluation framework for Voxelmorph using pytorch + gpu enabled.
+A few loss functions from the literature are implemented that differ from the original Voxelmorph paper.
+
+
+## Citation: 
+    **VoxelMorph: A Learning Framework for Deformable Medical Image Registration**  
+[Guha Balakrishnan](http://people.csail.mit.edu/balakg/), [Amy Zhao](http://people.csail.mit.edu/xamyzhao/), [Mert R. Sabuncu](http://sabuncu.engineering.cornell.edu/), [John Guttag](https://people.csail.mit.edu/guttag/), [Adrian V. Dalca](http://adalca.mit.edu)  
+IEEE TMI: Transactions on Medical Imaging. 2019. 
+[eprint arXiv:1809.05231](https://arxiv.org/abs/1809.05231)
+
+
 # VoxelMorph: learning-based image registration
 
 **VoxelMorph** is a general purpose library for learning-based tools for alignment/registration, and more generally modelling with deformations.

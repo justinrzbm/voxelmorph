@@ -1,5 +1,6 @@
 '''
 Author: Justin Rozeboom
+wrozeboo@ualberta.ca
 '''
 
 # don't use any tensorflow
