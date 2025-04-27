@@ -21,3 +21,8 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+
+savedmodel/
+data/MNIST/
+data/brains2d/
+tutorial/

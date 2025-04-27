@@ -261,10 +261,11 @@ class VxmDense(LoadableModel):
         if self.resize:
             pos_flow = self.resize(pos_flow)
 
-        preint_flow = pos_flow
+        preint_v_pos = pos_flow
 
         # negate flow for bidirectional model
         neg_flow = -pos_flow if self.bidir else None
+        preint_v_neg = neg_flow
 
         # integrate to produce diffeomorphic warp
         if self.integrate:
@@ -280,9 +281,16 @@ class VxmDense(LoadableModel):
         y_source = self.transformer(source, pos_flow)
         y_target = self.transformer(target, neg_flow) if self.bidir else None
 
+
+        # override: return y_source, y_target, velocity, phi
+        if self.integrate:
+            return y_source, y_target, pos_flow, preint_v_pos
+        else:   # model computed phi directly with no diffeomorphic integration
+            return y_source, y_target, None, preint_v_pos
+
         # return non-integrated flow field if training
         if not registration:
-            return (y_source, y_target, preint_flow) if self.bidir else (y_source, preint_flow)
+            return (y_source, y_target, preint_v_pos) if self.bidir else (y_source, preint_v_pos)
         else:
             return y_source, pos_flow
 
